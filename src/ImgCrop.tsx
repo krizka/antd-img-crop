@@ -256,6 +256,7 @@ const ImgCrop = forwardRef<CropperRef, ImgCropProps>((props, cropperRef) => {
                   beforeUpload,
                   file: newFile as unknown as RcFile,
                   resolve: (file) => {
+                    file.originalFile = processedFile;
                     resolve(file);
                     cb.current.onModalOk?.(file);
                   },
